@@ -20,3 +20,10 @@ Route::get('/signup', 'UsersController@create')->name('signup');
 // Route::resource('users', 'UsersController');
 Route::get('users/{user}', 'UsersController@show')->name('users.show');
 Route::post('users', 'UsersController@store')->name('users.store');
+
+// 显示登录页面
+Route::get('login', 'SessionsController@create')->name('login');
+// 创建新会话（登录）
+Route::post('login', 'SessionsController@store')->name('login');
+// 销毁会话（退出登录）
+Route::delete('logout', 'SessionsController@destory')->name('logout');

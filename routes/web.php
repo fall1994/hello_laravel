@@ -18,12 +18,21 @@ Route::get('/about', 'StaticPagesController@about')->name('about');
 
 Route::get('/signup', 'UsersController@create')->name('signup');
 // Route::resource('users', 'UsersController');
-Route::get('users/{user}', 'UsersController@show')->name('users.show');
-Route::post('users', 'UsersController@store')->name('users.store');
+Route::get('/users', 'UsersController@index')->name('users.index');
+Route::get('/users/{user}', 'UsersController@show')->name('users.show');
+Route::post('/users', 'UsersController@store')->name('users.store');
+// 编辑个人信息
+Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
+// 更新个人信息
+Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
+
+// Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy');
+Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy');
+
 
 // 显示登录页面
 Route::get('login', 'SessionsController@create')->name('login');
 // 创建新会话（登录）
 Route::post('login', 'SessionsController@store')->name('login');
 // 销毁会话（退出登录）
-Route::delete('logout', 'SessionsController@destory')->name('logout');
+Route::delete('logout', 'SessionsController@destroy')->name('logout');

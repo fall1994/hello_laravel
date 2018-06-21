@@ -30,6 +30,13 @@ Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
 Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy');
 
 
+Route::resource('statuses', 'StatusesController', ['only'=> ['store', 'destroy']]);
+// 创建微博
+// Route::post('/statuses', 'StatusesController@store')->name('statuses.store');
+// // 删除微博
+// Route::delete('/statuses', 'StatusesController@destroy')->name('statuses.destroy');
+
+
 // 显示登录页面
 Route::get('login', 'SessionsController@create')->name('login');
 // 创建新会话（登录）

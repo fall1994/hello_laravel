@@ -36,6 +36,11 @@ Route::resource('statuses', 'StatusesController', ['only'=> ['store', 'destroy']
 // // 删除微博
 // Route::delete('/statuses', 'StatusesController@destroy')->name('statuses.destroy');
 
+Route::get('/users/{user}/followings', 'UsersController@followings')->name('users.followings');
+Route::get('/users/{user}/followers', 'UsersController@followers')->name('users.followers');
+
+Route::post('/users/followers/{user}', 'FollowersController@store')->name('followers.store');
+Route::delete('/users/followers/{user}', 'FollowersController@destroy')->name('followers.destroy');
 
 // 显示登录页面
 Route::get('login', 'SessionsController@create')->name('login');
